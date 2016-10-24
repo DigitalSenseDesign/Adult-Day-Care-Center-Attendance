@@ -133,8 +133,8 @@ namespace Attendance
         {
             try
             {
-                string UserPath = AppDomain.CurrentDomain.BaseDirectory + @"IO\ServiceUser.XML";
-                string MarkPath = AppDomain.CurrentDomain.BaseDirectory + @"IO\Mark.XML";
+                string UserPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), @"ServiceUsers.XML");
+                string MarkPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), @"Marks.XML");
 
                 File.Create(UserPath).Close();
                 File.Create(MarkPath).Close();
@@ -151,8 +151,8 @@ namespace Attendance
         {
             try
             {
-                string UserPath = AppDomain.CurrentDomain.BaseDirectory + @"IO\ServiceUser.XML";
-                string MarkPath = AppDomain.CurrentDomain.BaseDirectory + @"IO\Mark.XML";
+                string UserPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), @"ServiceUsers.XML");
+                string MarkPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), @"Marks.XML");
 
                 if (!File.Exists(UserPath))
                 {
