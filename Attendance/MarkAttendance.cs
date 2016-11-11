@@ -7,10 +7,9 @@ namespace Attendance
     public partial class MarkAttendance : Form
     {
         int i = 0;
-        Dictionary<string, bool> Day = new Dictionary<string, bool>();
+        Dictionary<string, bool> day = new Dictionary<string, bool>();
         static string todaysDate = DateTime.Now.DayOfWeek.ToString();
         List<ServiceUser> usersToday = new List<ServiceUser>();
-        bool isDone;
 
         public MarkAttendance()
         {
@@ -50,39 +49,19 @@ namespace Attendance
         }
         private void Absent_Click(object sender, EventArgs e)
         {
-            if (!isDone)
-            {
-                Mark(false);
-            }
-            else
-            {
-                MessageBox.Show("Marked all service users");
-            }
+            Mark(false);
         }
         private void Present_Click(object sender, EventArgs e)
         {
-            if (!isDone)
-            {
-                Mark(true);
-            }
-            else
-            {
-                MessageBox.Show("Marked all service users");
-            }
+            Mark(true);
         }
-        private void MainMenu_Click(object sender, EventArgs e)
-        {
-            MainMenu frm = new MainMenu();
-            frm.Show();
-            this.Hide();
-        }
-
         private void Mark(bool isHere)
         {
-            Data.AddMark(
-                usersToday[i].SOSCareNumber,
-                isHere
-                );
+            Data.Marks.Add(new Mark
+            {
+                Date   = DateTime.Today,
+                ID     = usersToday[i].SOSCareNumber,
+                IsHere = isHere});
             i++;
             LoadUsers();
         }
@@ -92,21 +71,24 @@ namespace Attendance
             {
                 i--;
                 MessageBox.Show("Marked all service users");
-                isDone = true;
-                Clear();
+                MainMenu();
             }
             else
             {
                 SOSCareNumber.Text = usersToday[i].SOSCareNumber;
                 FullName.Text      = usersToday[i].FirstName + " " + usersToday[i].LastName;
-                Address.Text       = usersToday[i].Addess;
+                Address.Text       = usersToday[i].Address;
             }
         }
-        void Clear()
+        private void MainMenu_Click(object sender, EventArgs e)
         {
-            SOSCareNumber.Text = "";
-            FullName.Text = "";
-            Address.Text = "";
+            MainMenu();
+        }
+        void MainMenu()
+        {
+            MainMenu frm = new MainMenu();
+            frm.Show();
+            this.Hide();
         }
     }
 }

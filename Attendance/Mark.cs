@@ -5,8 +5,8 @@ namespace Attendance
     class Mark
     {
         private DateTime date;
-        private string id;
-        private bool isHere;
+        private string   id;
+        private bool     isHere;
 
         public DateTime Date
         {
@@ -26,8 +26,8 @@ namespace Attendance
 
         public Mark()
         {
-            Date = DateTime.Now;
-            ID = "";
+            Date   = DateTime.Now;
+            ID     = "";
             IsHere = false;
         }
 
@@ -37,8 +37,8 @@ namespace Attendance
             bool IsHere
             )
         {
-            this.Date = Date;
-            this.ID = ID;
+            this.Date   = Date;
+            this.ID     = ID;
             this.IsHere = IsHere;
         }
     }

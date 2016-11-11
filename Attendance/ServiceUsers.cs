@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Attendance
 {
@@ -8,7 +9,7 @@ namespace Attendance
         private string   firstName;
         private string   lastName;
         private DateTime dob;
-        private string   addess;
+        private string   address;
         private string   postCode;
         private string   programOfCare;
         private string   transport;
@@ -39,10 +40,10 @@ namespace Attendance
             get { return dob; }
             set { dob = value; }
         }
-        public string Addess
+        public string Address
         {
-            get { return addess; }
-            set { addess = value; }
+            get { return address; }
+            set { address = value; }
         }
         public string PostCode
         {
@@ -91,7 +92,7 @@ namespace Attendance
             FirstName     = "";
             LastName      = "";
             DOB           = DateTime.Now;
-            Addess        = "";
+            Address       = "";
             PostCode      = "";
             ProgramOfCare = "";
             Transport     = "";
@@ -124,7 +125,7 @@ namespace Attendance
             this.FirstName     = FirstName;
             this.LastName      = LastName;
             this.DOB           = DOB;
-            this.Addess        = Address;
+            this.Address       = Address;
             this.PostCode      = PostCode;
             this.ProgramOfCare = ProgramOfCare;
             this.Transport     = Transport;

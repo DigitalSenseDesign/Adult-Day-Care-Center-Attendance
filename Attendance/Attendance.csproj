@@ -51,6 +51,7 @@
     <Compile Include="AddUsers.Designer.cs">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommonCode.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataMenu.cs">
       <SubType>Form</SubType>

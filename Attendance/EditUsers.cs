@@ -32,7 +32,7 @@ namespace Attendance
             FirstName.Text     = Data.ServiceUsers[SOSCareNumber.SelectedIndex].FirstName;
             LastName.Text      = Data.ServiceUsers[SOSCareNumber.SelectedIndex].LastName;
             DOB.Value          = Data.ServiceUsers[SOSCareNumber.SelectedIndex].DOB;
-            Address.Text       = Data.ServiceUsers[SOSCareNumber.SelectedIndex].Addess;
+            Address.Text       = Data.ServiceUsers[SOSCareNumber.SelectedIndex].Address;
             PostCode.Text      = Data.ServiceUsers[SOSCareNumber.SelectedIndex].PostCode;
             ProgramOfCare.Text = Data.ServiceUsers[SOSCareNumber.SelectedIndex].ProgramOfCare;
             Transport.Text     = Data.ServiceUsers[SOSCareNumber.SelectedIndex].Transport;
@@ -45,24 +45,26 @@ namespace Attendance
         }
         private void ModifyRecord_Click(object sender, EventArgs e)
         {
-            Data.EditUser(
-                    SOSCareNumber.SelectedIndex,
+            int i = SOSCareNumber.SelectedIndex;
 
-                    SOSCareNumber.Text,
-                    FirstName.Text,
-                    LastName.Text,
-                    DOB.Value,
-                    Address.Text,
-                    PostCode.Text,
-                    ProgramOfCare.Text,
-                    Transport.Text,
+            DialogResult dr = MessageBox.Show("Are you sure you want to modify the record?", "Modify record", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                Data.ServiceUsers[i].SOSCareNumber = SOSCareNumber.Text;
+                Data.ServiceUsers[i].FirstName     = FirstName.Text;
+                Data.ServiceUsers[i].LastName      = LastName.Text;
+                Data.ServiceUsers[i].DOB           = DOB.Value;
+                Data.ServiceUsers[i].Address       = Address.Text;
+                Data.ServiceUsers[i].PostCode      = PostCode.Text;
+                Data.ServiceUsers[i].ProgramOfCare = ProgramOfCare.Text;
+                Data.ServiceUsers[i].Transport     = Transport.Text;
 
-                    Monday.Checked,
-                    Tuesday.Checked,
-                    Wednesday.Checked,
-                    Thursday.Checked,
-                    Friday.Checked
-                    );
+                Data.ServiceUsers[i].Monday        = Monday.Checked;
+                Data.ServiceUsers[i].Tuesday       = Tuesday.Checked;
+                Data.ServiceUsers[i].Wednesday     = Wednesday.Checked;
+                Data.ServiceUsers[i].Thursday      = Thursday.Checked;
+                Data.ServiceUsers[i].Friday        = Friday.Checked;
+            }
 
             UpdateList();
         }

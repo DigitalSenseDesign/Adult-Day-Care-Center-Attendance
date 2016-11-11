@@ -24,7 +24,7 @@ namespace Attendance
             serviceUserDT.Columns.Add(new DataColumn("FirstName"));
             serviceUserDT.Columns.Add(new DataColumn("LastName"));
             serviceUserDT.Columns.Add(new DataColumn("DOB"));
-            serviceUserDT.Columns.Add(new DataColumn("Addess"));
+            serviceUserDT.Columns.Add(new DataColumn("Address"));
             serviceUserDT.Columns.Add(new DataColumn("PostCode"));
             serviceUserDT.Columns.Add(new DataColumn("ProgramOfCare"));
             serviceUserDT.Columns.Add(new DataColumn("Transport"));
@@ -44,16 +44,16 @@ namespace Attendance
                 row["FirstName"]     = ServiceUser.FirstName;
                 row["LastName"]      = ServiceUser.LastName;
                 row["DOB"]           = ServiceUser.DOB.ToShortDateString();
-                row["Addess"]        = ServiceUser.Addess;
+                row["Address"]        = ServiceUser.Address;
                 row["PostCode"]      = ServiceUser.PostCode;
                 row["ProgramOfCare"] = ServiceUser.ProgramOfCare;
                 row["Transport"]     = ServiceUser.Transport;
 
-                row["Monday"]        = ParseBool(ServiceUser.Monday   , "Expected", "Not Expected");
-                row["Tuesday"]       = ParseBool(ServiceUser.Tuesday  , "Expected", "Not Expected");
-                row["Wednesday"]     = ParseBool(ServiceUser.Wednesday, "Expected", "Not Expected");
-                row["Thursday"]      = ParseBool(ServiceUser.Thursday , "Expected", "Not Expected");
-                row["Friday"]        = ParseBool(ServiceUser.Friday   , "Expected", "Not Expected");
+                row["Monday"]        = CommonCode.ParseBool(ServiceUser.Monday   , "Expected", "Not Expected");
+                row["Tuesday"]       = CommonCode.ParseBool(ServiceUser.Tuesday  , "Expected", "Not Expected");
+                row["Wednesday"]     = CommonCode.ParseBool(ServiceUser.Wednesday, "Expected", "Not Expected");
+                row["Thursday"]      = CommonCode.ParseBool(ServiceUser.Thursday , "Expected", "Not Expected");
+                row["Friday"]        = CommonCode.ParseBool(ServiceUser.Friday   , "Expected", "Not Expected");
 
                 serviceUserDT.Rows.Add(row);
             }
@@ -75,7 +75,7 @@ namespace Attendance
 
                 row["Date"] = Mark.Date.ToShortDateString();
                 row["ID"] = Mark.ID;
-                row["Attendance"] = ParseBool(Mark.IsHere, "Attended", "Absent");
+                row["Attendance"] = CommonCode.ParseBool(Mark.IsHere, "Attended", "Absent");
 
                 markDT.Rows.Add(row);
             }
@@ -119,7 +119,7 @@ namespace Attendance
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     DOB = u.DOB.ToShortDateString(),
-                    Address = u.Addess,
+                    Address = u.Address,
                     PostCode = u.PostCode,
                     ProgramOfCare = u.ProgramOfCare,
                     Transport = u.Transport,
@@ -152,7 +152,7 @@ namespace Attendance
                     record.Thursday      + "," +
                     record.Friday        + "," +
 
-                    ParseBool(record.Value, "Attended", "Absent")
+                    CommonCode.ParseBool(record.Value, "Attended", "Absent")
                );
             }
             UpdateServiceUserTable();
@@ -230,24 +230,6 @@ namespace Attendance
 
             lines.Clear();
         }
-        string ParseBool(bool input, string trueString, string falseString)
-        {
-            string result = "";
-
-            if (input == true)
-            {
-                result = trueString;
-            }
-            else if (input == false)
-            {
-                result = falseString;
-            }
-            else
-            {
-                result = "Error";
-            }
-            return result;
-        }
         void MainMenu_Click(object sender, EventArgs e)
         {
             MainMenu frm = new MainMenu();
@@ -277,7 +259,7 @@ namespace Attendance
             if (FirstDate.Value > LastDate.Value)
             {
                 errorProvider1.SetError(FirstDate, "Last Date cannot be before First Date");
-                errorProvider1.SetError(LastDate, "Last Date cannot be before First Date");
+                errorProvider1.SetError(LastDate,  "Last Date cannot be before First Date");
                 isValid = false;
             }
             return isValid;

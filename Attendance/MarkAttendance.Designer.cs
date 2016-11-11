@@ -35,7 +35,7 @@
             this.FullName = new System.Windows.Forms.TextBox();
             this.Address = new System.Windows.Forms.TextBox();
             this.Absent = new System.Windows.Forms.Button();
-            this.MainMenu = new System.Windows.Forms.Button();
+            this.cmdMainMenu = new System.Windows.Forms.Button();
             this.Present = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -100,15 +100,15 @@
             this.Absent.UseVisualStyleBackColor = true;
             this.Absent.Click += new System.EventHandler(this.Absent_Click);
             // 
-            // MainMenu
+            // cmdMainMenu
             // 
-            this.MainMenu.Location = new System.Drawing.Point(15, 121);
-            this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(240, 25);
-            this.MainMenu.TabIndex = 5;
-            this.MainMenu.Text = "Main Menu";
-            this.MainMenu.UseVisualStyleBackColor = true;
-            this.MainMenu.Click += new System.EventHandler(this.MainMenu_Click);
+            this.cmdMainMenu.Location = new System.Drawing.Point(15, 121);
+            this.cmdMainMenu.Name = "cmdMainMenu";
+            this.cmdMainMenu.Size = new System.Drawing.Size(240, 25);
+            this.cmdMainMenu.TabIndex = 5;
+            this.cmdMainMenu.Text = "Main Menu";
+            this.cmdMainMenu.UseVisualStyleBackColor = true;
+            this.cmdMainMenu.Click += new System.EventHandler(this.MainMenu_Click);
             // 
             // Present
             // 
@@ -126,7 +126,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 154);
             this.Controls.Add(this.Present);
-            this.Controls.Add(this.MainMenu);
+            this.Controls.Add(this.cmdMainMenu);
             this.Controls.Add(this.Absent);
             this.Controls.Add(this.Address);
             this.Controls.Add(this.FullName);
@@ -151,7 +151,7 @@
         private System.Windows.Forms.TextBox FullName;
         private System.Windows.Forms.TextBox Address;
         private System.Windows.Forms.Button Absent;
-        private System.Windows.Forms.Button MainMenu;
+        private System.Windows.Forms.Button cmdMainMenu;
         private System.Windows.Forms.Button Present;
     }
 }

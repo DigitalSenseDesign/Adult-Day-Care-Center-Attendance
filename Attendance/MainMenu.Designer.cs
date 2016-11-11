@@ -30,7 +30,7 @@
         {
             this.Quit = new System.Windows.Forms.Button();
             this.Attendance = new System.Windows.Forms.Button();
-            this.Data = new System.Windows.Forms.Button();
+            this.ManageData = new System.Windows.Forms.Button();
             this.ManageUsers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,15 +54,15 @@
             this.Attendance.UseVisualStyleBackColor = true;
             this.Attendance.Click += new System.EventHandler(this.Attendance_Click);
             // 
-            // Data
+            // ManageData
             // 
-            this.Data.Location = new System.Drawing.Point(12, 124);
-            this.Data.Name = "Data";
-            this.Data.Size = new System.Drawing.Size(260, 50);
-            this.Data.TabIndex = 2;
-            this.Data.Text = "Data";
-            this.Data.UseVisualStyleBackColor = true;
-            this.Data.Click += new System.EventHandler(this.Data_Click);
+            this.ManageData.Location = new System.Drawing.Point(12, 124);
+            this.ManageData.Name = "ManageData";
+            this.ManageData.Size = new System.Drawing.Size(260, 50);
+            this.ManageData.TabIndex = 2;
+            this.ManageData.Text = "Data";
+            this.ManageData.UseVisualStyleBackColor = true;
+            this.ManageData.Click += new System.EventHandler(this.Data_Click);
             // 
             // ManageUsers
             // 
@@ -81,7 +81,7 @@
             this.ClientSize = new System.Drawing.Size(289, 238);
             this.Controls.Add(this.Quit);
             this.Controls.Add(this.Attendance);
-            this.Controls.Add(this.Data);
+            this.Controls.Add(this.ManageData);
             this.Controls.Add(this.ManageUsers);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -94,7 +94,7 @@
 
         private System.Windows.Forms.Button Quit;
         private System.Windows.Forms.Button Attendance;
-        private System.Windows.Forms.Button Data;
+        private System.Windows.Forms.Button ManageData;
         private System.Windows.Forms.Button ManageUsers;
     }
 }

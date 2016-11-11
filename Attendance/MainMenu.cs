@@ -11,9 +11,9 @@ namespace Attendance
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            if(global::Attendance.Data.ServiceUsers.Count == 0)
+            if(Data.ServiceUsers.Count == 0)
             {
-                global::Attendance.Data.LoadAllData();
+                Data.LoadAllData();
             }
         }
         private void ManageUsers_Click(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace Attendance
         }
         private void Attendance_Click(object sender, EventArgs e)
         {
-            if (global::Attendance.Data.HasData())
+            if (Data.HasData())
             {
                 MarkAttendance frm = new MarkAttendance();
                 frm.Show();
@@ -46,7 +46,7 @@ namespace Attendance
             DialogResult dr = MessageBox.Show("Do you wish to quit?", "Quit", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (dr == DialogResult.OK)
             {
-                global::Attendance.Data.SaveAllData();
+                Data.SaveAllData();
                 Application.Exit();
             }
         }
